@@ -9,7 +9,7 @@ let numeroLevels;
 
 tela08()
 function tela08() {
-    document.querySelector(".container").innerHTML = `
+    document.querySelector(".tela3_container").innerHTML = `
     <div class="tela8">
         Comece pelo começo
         <div class="informacoesTela8">
@@ -34,7 +34,7 @@ function preencherQuizz() {
 
 function tela09() {
     document.querySelector(".tela8").classList.toggle("hidden")
-    document.querySelector(".container").innerHTML += `
+    document.querySelector(".tela3_container").innerHTML += `
     <div class="tela9">
         Crie suas perguntas
     </div> `
