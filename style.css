@@ -97,7 +97,7 @@ header>h1 {
 }
 
 .seusQuizzes {
-    margin: 66px 0  48px;
+    margin: 66px 0 48px;
     position: relative;
 }
 
@@ -107,13 +107,13 @@ header>h1 {
     margin-bottom: 10px;
 }
 
-.seusQuizzes_Titulo > h2{
+.seusQuizzes_Titulo>h2 {
     font-weight: 700;
     font-size: 20px;
     color: #000000;
 }
 
-.seusQuizzes_Titulo > ion-icon{
+.seusQuizzes_Titulo>ion-icon {
     margin-left: 18px;
 }
 
@@ -125,24 +125,27 @@ header>h1 {
     column-gap: 15px;
     overflow-x: scroll;
     position: relative;
-    -ms-overflow-style: none; /* Esconder scroll-bar IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* Esconder scroll-bar IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .seusQuizzes_Quizzes::-webkit-scrollbar {
-    display: none;      /* Chrome, Safari and Opera */
-  }
+    display: none;
+    /* Chrome, Safari and Opera */
+}
 
-.seusQuizzes_Quizzes > .todosQuizzes_quizes {
+.seusQuizzes_Quizzes>.todosQuizzes_quizes {
     height: 100%;
     width: 340px;
 }
 
-.seusQuizzes_Quizzes > .todosQuizzes_quizes > img {
+.seusQuizzes_Quizzes>.todosQuizzes_quizes>img {
     width: 340px;
 }
 
-.seusQuizzes > ion-icon {
+.seusQuizzes>ion-icon {
     position: absolute;
     top: 110px;
     right: 2%;
