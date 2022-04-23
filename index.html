@@ -27,55 +27,55 @@
 
     <main>
         <div class="tela1_container">
-            <div class="criarQuizz hidden">
+            <div class="criarQuizz">
                 <div class="criarQuizz_txt">
                     Você não criou nenhum quizz ainda :(
                 </div>
-                <button>
+                <button onclick="irCriacaoQuizz()">
                     <h2>Criar Quizz</h2>
                 </button>
             </div>
 
-            <div class="seusQuizzes">
+            <div class="seusQuizzes hidden">
                 <div class="seusQuizzes_Titulo">
                     <h2>Seus Quizzes</h2>
-                    <ion-icon name="add-sharp"></ion-icon>
+                    <ion-icon name="add-sharp" onclick="irCriacaoQuizz()"></ion-icon>
                 </div>
                 <ul class="seusQuizzes_Quizzes">
-                    <li class="todosQuizzes_quizes">
+                    <li class="todosQuizzes_quizes" onclick="quizEscolhidoVaiPara02()">
                         <img src="midia\image\03-Hogwarts.jpg">
                         <div class="degrade">
-                            <h3>O quão Potterhead é você?</h3>
+                            <h3 class="chamadaQuizz">O quão Potterhead é você?</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\02-preguica.jpg">
                         <div class="degrade">
-                            <h3>O quanto você é de boas?</h3>
+                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\01-simpsons.png">
                         <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\02-preguica.jpg">
                         <div class="degrade">
-                            <h3>O quanto você é de boas?</h3>
+                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\01-simpsons.png">
                         <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\02-preguica.jpg">
                         <div class="degrade">
-                            <h3>O quanto você é de boas?</h3>
+                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
                         </div>
                     </li>
                 </ul>
@@ -88,44 +88,130 @@
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\01-simpsons.png">
                         <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                        </div >
+                    </li>
+                    <li class="todosQuizzes_quizes">
+                        <img src="midia\image\02-preguica.jpg">
+                        <div class="degrade">
+                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
+                        </div>
+                    </li>
+                    <li class="todosQuizzes_quizes">
+                        <img src="midia\image\01-simpsons.png">
+                        <div class="degrade">
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                        </div>
+                    </li>
+                    <li class="todosQuizzes_quizes">
+                        <img src="midia\image\01-simpsons.png">
+                        <div class="degrade">
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\02-preguica.jpg">
                         <div class="degrade">
-                            <h3>O quanto você é de boas?</h3>
+                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
                         </div>
                     </li>
                     <li class="todosQuizzes_quizes">
                         <img src="midia\image\01-simpsons.png">
                         <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\02-preguica.jpg">
-                        <div class="degrade">
-                            <h3>O quanto você é de boas?</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3>Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
+                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
 
+        <div class="tela2_container hidden">
+            <div class="bannerQuizz">
+                <img src="midia\image\03-Hogwarts.jpg">
+                <div class="telaPreta"></div>
+                <h2>O quão Potterhead é você?</h2>
+            </div>
+            <div class="corpoQuizz_container">
+                <div class="corpoQuizz">
+                    <div class="questaoQuizz">
+                        <div class="perguntaQuizz">
+                            <h4>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</h4>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\04-Gato.png">
+                            <span>Gatíneo</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\05-Rato.png">
+                            <span>Ratata</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\06-Sapo.png">
+                            <span>Sapo gordo</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\07-Furao.png">
+                            <span>Mustela putorius (o Furão)</span>
+                        </div>
+                    </div>
+                    <div class="questaoQuizz">
+                        <div class="perguntaQuizz" style="background-color: #A0438D;">
+                            <h4>Qual dos objetos abaixo NÃO é uma horcrux?</h4>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\08-HP.png">
+                            <span>The boy who lived</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\09-LivroFofo.png">
+                            <span>O livro monstruoso dos monstros</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\10-Anel.png">
+                            <span>Anel velho</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="midia\image\11-Corv.png">
+                            <span>Diadema da Ravenclaw</span>
+                        </div>
+                    </div>
+                    <div class="resultadoQuizz">
+                        <div class="resultadoValor">
+                            <h3>88% de acerto: Você é praticamente um aluno de Hogwarts!</h3>
+                        </div>
+                        <img src="midia\image\12-Dumbledore.png">
+                        <h4>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no
+                            botão abaixo para usar o vira-tempo e reiniciar este teste.</h4>
+                    </div>
+                    <div class="finalQuizzBotoes">
+                        <button class="reiniciarQuizz_button">Reiniciar Quizz</button>
+                        <p onclick="voltarHome('tela2_container')">Voltar pra home</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
         <div class="tela3_container hidden"></div>
+
+        <div class="loading hidden">
+            <div class="sk-circle">
+                <div class="sk-circle1 sk-child"></div>
+                <div class="sk-circle2 sk-child"></div>
+                <div class="sk-circle3 sk-child"></div>
+                <div class="sk-circle4 sk-child"></div>
+                <div class="sk-circle5 sk-child"></div>
+                <div class="sk-circle6 sk-child"></div>
+                <div class="sk-circle7 sk-child"></div>
+                <div class="sk-circle8 sk-child"></div>
+                <div class="sk-circle9 sk-child"></div>
+                <div class="sk-circle10 sk-child"></div>
+                <div class="sk-circle11 sk-child"></div>
+                <div class="sk-circle12 sk-child"></div>
+            </div>
+            <div class="entrando">Carregando</div>
+        </div>
     </main>
 
 
