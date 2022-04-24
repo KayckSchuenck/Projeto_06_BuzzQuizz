@@ -15,6 +15,13 @@ function reiniciaPag() {
     window.location.reload()
 }
 
+// Embaralhar
+function comparador() {
+    return Math.random() - 0.5;
+}
+
+
+
 // Adicionar tela de loading. Só adicionar "telaX_container" como variável que funcionar
 function adicionaLoading(tela) {
     document.querySelector(`${tela}`).classList.add("hidden");
@@ -69,10 +76,12 @@ function falhouExibirQuizz(erro) {
 // Pegando dados de cada quiz para exibir no painel
 function exibindoTodosQuizz_PegandoDados(objetoComValores) {
     document.querySelector(".todosQuizzes").innerHTML += `
-        <li class="todosQuizzes_quizes">
+        <li class="todosQuizzes_quizes" onclick="entrandoQuizz(this)">
             <img src=${objetoComValores["image"]}>
             <div class="degrade">
                 <h3 class="chamadaQuizz">${objetoComValores["title"]}</h3>
             </div >
+            <p class="id">${objetoComValores['id']}</p>
         </li>`
 }
+
