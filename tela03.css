@@ -1,0 +1,203 @@
+/*Tela 3*/
+.tela8, .tela11{
+    margin-top: 71px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.tela8 input, .tela9 input, .tela10 input {
+    padding: 13px 23px 11px;
+    height: 46px;
+    width: 564px;
+    border-radius: 5px;
+    margin-bottom: 9px;
+    border: 1px solid #D1D1D1;
+}
+.tela9 input, .tela10 input{
+    margin-bottom: 14px;
+}
+.tela8 input::placeholder, .tela9 input::placeholder, .tela10 input::placeholder {
+    font-weight: 400;
+    font-size: 19px;
+    font-style: italic;
+    color: #BABABA;
+}
+
+.tela8 button, .tela9 button, .tela10 button, .tela11 button {
+    border: none;
+    color: #FFF5F4;
+    background-color: #EC362D;
+    margin-top: 85px;
+    width: 369px;
+    border-radius: 15px;
+    font-size: 21px;
+    font-weight: 400;
+    text-align: center;
+    height: 54px;
+    margin-bottom: 15px;
+}
+
+.informacoesTela8 {
+    width: 600px;
+    height: 256px;
+    padding: 21px 20px 15px 16px;
+    margin-top: 27px;
+    background-color: white;
+}
+
+.tela9, .tela10 {
+    margin-top: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.tela9 button {
+    margin-top: 59px;
+    width: 354px;
+}
+
+.tela10 button{
+    width: 324px;
+    margin-top: 53px;
+}
+
+.perguntas:first-child {
+    margin-top: 36px;
+}
+
+.fechada {
+    height: 74px;
+    width: 600px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    padding: 0 24px 0 17px;
+}
+
+.aberta {
+    width: 600px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px #0000000D;
+    padding: 13px 20px 13px 16px;
+    margin-bottom: 24px;
+}
+
+.iniciodaPergunta, .nivel {
+    display: flex;
+    flex-direction: column;
+}
+
+.respostasIncorretas {
+    display: flex;
+    flex-direction: column;
+}
+
+.aberta span {
+    font-size: 20px;
+    margin: 14px 0;
+}
+
+.iniciodaPergunta span:nth-child(4) {
+    margin-top: 24px;
+}
+
+.respostasIncorretas input:nth-child(odd) {
+    margin-bottom: 33px;
+}
+
+.respostasIncorretas input:last-child{
+    margin-bottom: 14px;
+}
+
+.niveis:first-child {
+    margin-top: 43px;
+}
+
+.tela11 img{
+    width: 500px;
+    height: 266px;
+    position: relative;
+    margin:46px 0px;
+    border-radius: 5px;
+    
+}
+
+.tela11 button:nth-child(3){
+   margin-top:0px;
+   width: 220px;
+   height: 44px;
+   margin-bottom: 0px;
+}
+
+.tela11 button:last-child{
+    width: 220px;
+    margin-top: 9px;
+    height: 44px;
+    background-color: white;
+    color: #818181;
+ }
+
+ .tituloQuizz{
+    position: absolute;
+    font-size: 23px;
+    font-weight: 400;
+    color: white;
+    top:60%;
+    left:25%;
+ }
+
+
+
+@media (max-width:1100px){
+    .tela8{
+        margin-top: 107px;
+        font-size: 20px;
+    }
+    .informacoesTela8 {
+        width: 375px;
+        padding: 21px 18px 15px 16px;
+    }
+    .tela8 button, .tela9 button, .tela10 button {
+        margin-top: 46px;
+        width: 324px;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .tela8 input, .tela9 input, .tela10 input {
+        padding: 13px 14px 11px;
+        width: 341px;
+    }
+    .tela9, .tela10, .tela11 {
+        margin-top: 38px;
+        font-size: 20px;
+    }
+    
+    .tela9 button {
+        margin-top: 24px;
+    }
+    .fechada{
+        width: 375px;
+    }
+    .aberta{
+        width: 375px;
+    }
+    .perguntas:first-child, .niveis:first-child, .tela11 img{
+        margin-top: 29px;
+    }
+    .tela10 button{
+        margin-top: 6px;
+    }
+    .tela11 img{
+        width: 340px;
+        height: 180px;
+    }
+}

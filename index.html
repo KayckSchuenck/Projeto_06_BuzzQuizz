@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tela01.css">
+    <link rel="stylesheet" href="tela02.css">
+    <link rel="stylesheet" href="tela03.css">
+    <link rel="stylesheet" href="loading.css">
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +30,7 @@
     </header>
 
     <main>
-        <div class="tela1_container">
+        <div class="tela1_container hidden">
             <div class="criarQuizz">
                 <div class="criarQuizz_txt">
                     Você não criou nenhum quizz ainda :(
@@ -84,44 +88,7 @@
 
             <div class="todosQuizzes_container">
                 <h2>Todos os Quizzes</h2>
-                <ul class="todosQuizzes">
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div >
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\02-preguica.jpg">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\02-preguica.jpg">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">O quanto você é de boas?</h3>
-                        </div>
-                    </li>
-                    <li class="todosQuizzes_quizes">
-                        <img src="midia\image\01-simpsons.png">
-                        <div class="degrade">
-                            <h3 class="chamadaQuizz">Acerte os personagens corretos dos Simpsons e prove seu amor!</h3>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="todosQuizzes"></ul>
             </div>
         </div>
 
@@ -195,30 +162,34 @@
 
         <div class="tela3_container hidden"></div>
 
-        <div class="loading hidden">
-            <div class="sk-circle">
-                <div class="sk-circle1 sk-child"></div>
-                <div class="sk-circle2 sk-child"></div>
-                <div class="sk-circle3 sk-child"></div>
-                <div class="sk-circle4 sk-child"></div>
-                <div class="sk-circle5 sk-child"></div>
-                <div class="sk-circle6 sk-child"></div>
-                <div class="sk-circle7 sk-child"></div>
-                <div class="sk-circle8 sk-child"></div>
-                <div class="sk-circle9 sk-child"></div>
-                <div class="sk-circle10 sk-child"></div>
-                <div class="sk-circle11 sk-child"></div>
-                <div class="sk-circle12 sk-child"></div>
+        <div class="loading_container">
+            <div class="loading">
+                <div class="sk-circle">
+                    <div class="sk-circle1 sk-child"></div>
+                    <div class="sk-circle2 sk-child"></div>
+                    <div class="sk-circle3 sk-child"></div>
+                    <div class="sk-circle4 sk-child"></div>
+                    <div class="sk-circle5 sk-child"></div>
+                    <div class="sk-circle6 sk-child"></div>
+                    <div class="sk-circle7 sk-child"></div>
+                    <div class="sk-circle8 sk-child"></div>
+                    <div class="sk-circle9 sk-child"></div>
+                    <div class="sk-circle10 sk-child"></div>
+                    <div class="sk-circle11 sk-child"></div>
+                    <div class="sk-circle12 sk-child"></div>
+                </div>
+                <div class="carregando">Carregando</div>
             </div>
-            <div class="entrando">Carregando</div>
         </div>
     </main>
-
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script01.js"></script>
+    <script src="script02.js"></script>
+    <script src="script03.js"></script>
     <script src="scripts.js"></script>
 </body>
 
