@@ -30,7 +30,7 @@ function adicionaLoading(tela) {
 }
 // Remove tela de loading.
 function removeLoading(tela) {
-    document.querySelector(`${tela}`).classList.remove("hidden");
+    document.querySelector(`${tela}`).classList.toggle("hidden");
     document.querySelector(".loading_container").classList.add("hidden");
 }
 
@@ -50,6 +50,7 @@ function quizEscolhidoVaiPara02() {
 }
 // Tela 01 para Tela 03 - para criar quizz
 function irCriacaoQuizz() {
+    tela08()
     document.querySelector(".tela1_container").classList.toggle("hidden")
     document.querySelector(".tela3_container").classList.toggle("hidden")
     document.querySelector(".tela3_container").scrollIntoView(true)

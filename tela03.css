@@ -128,7 +128,6 @@
     position: relative;
     margin:46px 0px;
     border-radius: 5px;
-    
 }
 
 .tela11 button:nth-child(3){
@@ -146,13 +145,14 @@
     color: #818181;
  }
 
- .tituloQuizz{
+ .tela11 span{
+    width: 460px;
     position: absolute;
     font-size: 23px;
     font-weight: 400;
     color: white;
-    top:60%;
-    left:25%;
+    word-break: break-all;
+    transform: translate(0,30px);
  }
 
 
@@ -200,4 +200,12 @@
         width: 340px;
         height: 180px;
     }
+    
+ .tela11 span{
+    width: 300px;
+    font-size: 19px;
+    font-weight: 400;
+    transform: translate(0,15px);
+ }
+    
 }

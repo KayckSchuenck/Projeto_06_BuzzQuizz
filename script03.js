@@ -6,32 +6,24 @@ let quizz = {
 }
 let numeroQuestions;
 let numeroLevels;
-
-
-tela08()
+let quantosQuizzes=0
+let contadorValidacao;
 function tela08() {
     document.querySelector(".tela3_container").innerHTML = `
     <div class="tela8">
+    <form onsubmit="preencherQuizz();tela09();">
         Comece pelo começo
         <div class="informacoesTela8">
-        <input type="text" minlength="20" maxlength="65" placeholder="Título do seu quizz" required></input>
-        <input type="url" placeholder="URL da imagem do seu quizz" required></input>
-        <input type="number" min="3" placeholder="Quantidade de perguntas do quizz" required></input>
-        <input type="number" min="2" placeholder="Quantidade de níveis do quizz" required></input>
+        <input type="text" minlength="20" maxlength="65" placeholder="Título do seu quizz"></input>
+        <input type="url" placeholder="URL da imagem do seu quizz">
+        <input type="number" min="3" placeholder="Quantidade de perguntas do quizz"></input>
+        <input type="number" min="2" placeholder="Quantidade de níveis do quizz"></input>
         </div>
-        <button onclick="validarTela8()">
+        <button type="Submit">
         Prosseguir pra criar perguntas
         </button>
+    </form>
     </div> `
-}
-
-function validarTela8(){
-    if(document.querySelector(".informacoesTela8 input:nth-child(1)").value.length>65||document.querySelector(".informacoesTela8 input:nth-child(1)").value.length<20||document.querySelector(".informacoesTela8 input:nth-child(3)").value<3||document.querySelector(".informacoesTela8 input:nth-child(4)").value<2){
-        alert("Campos preenchidos incorretamente")
-    } else {
-        preencherQuizz()
-        tela09()
-    }
 }
 
 function preencherQuizz() {
@@ -39,6 +31,7 @@ function preencherQuizz() {
     quizz.image = document.querySelector(".informacoesTela8 input:nth-child(2)").value
     numeroQuestions = document.querySelector(".informacoesTela8 input:nth-child(3)").value
     numeroLevels = document.querySelector(".informacoesTela8 input:nth-child(4)").value
+    console.log(quizz)
 }
 
 function tela09() {
@@ -54,18 +47,19 @@ function tela09() {
             Pergunta ${i + 1} <img src="midia/image/icone.svg">
             </div>
             <div class="aberta hidden">
+            <form onsubmit="handleSubmit();preencherQuestions();tela10();">
                 <div class="iniciodaPergunta">
                     <span>Pergunta${i + 1}</span>
-                    <input type="text" minlength="20" placeholder="Texto da pergunta" required></input>
+                    <input type="text" minlength="20" placeholder="Texto da pergunta"></input>
                     <input type="color" placeholder="Cor de fundo da pergunta"></input>
                     <span>Resposta Correta</span>
-                    <input type="text" placeholder="Resposta correta" required></input>
-                    <input type="url" placeholder="URL da imagem" required></input>
+                    <input type="text" placeholder="Resposta correta"></input>
+                    <input type="url" placeholder="URL da imagem"></input>
                 </div>
                 <div class="respostasIncorretas">
                     <span>Resposta Incorreta</span>
-                    <input type="text" name="resposta${i}" placeholder="Resposta incorreta 1" required></input>
-                    <input type="url" name="resposta${i}" placeholder="URL da imagem 1" required></input>
+                    <input type="text" name="resposta${i}" placeholder="Resposta incorreta 1"></input>
+                    <input type="url" name="resposta${i}" placeholder="URL da imagem 1"></input>
                     <input type="text" name="resposta${i}" placeholder="Resposta incorreta 2"></input>
                     <input type="url" name="resposta${i}" placeholder="URL da imagem 2"></input>
                     <input type="text" name="resposta${i}" placeholder="Resposta incorreta 3"></input>
@@ -75,9 +69,10 @@ function tela09() {
         </div>`
     }
     document.querySelector(".tela9").innerHTML += `
-    <button onclick="preencherQuestions();tela10()">
+    <button onclick="preencherQuestions();tela10();">
     Prosseguir pra criar níveis
     </button>`
+    
 }
 
 function abrirPerguntaNivel(elemento) {
@@ -125,6 +120,8 @@ function preencherAnswers() {
     }
 }
 
+let nomeTela=".tela10";
+
 function tela10() {
     document.querySelector(".tela9").classList.toggle("hidden")
     document.querySelector(".tela3_container").innerHTML += `
@@ -132,24 +129,27 @@ function tela10() {
         Agora, decida os níveis
     </div> `
     for (let i = 0; i < numeroQuestions; i++) {
+        
     document.querySelector(".tela10").innerHTML +=`
     <div class="niveis">
         <div class="fechada" onclick="abrirPerguntaNivel(this)">
         Nível ${i + 1} <img src="midia/image/icone.svg">
         </div>
         <div class="aberta hidden">
+        <form onsubmit="preencherLevels();adicionaLoading(nomeTela);">
             <div class="nivel">
                 <span>Nível ${i + 1}</span>
-                <input type="text" minlength="10" placeholder="Titulo do nível" required></input>
-                <input type="number" placeholder="% de acerto mínimo" required></input>
-                <input type="url" placeholder="URL da imagem do nível" required></input>
-                <input type="text" minlength="30" placeholder="Descrição do nível" required></input>
+                <input type="text" minlength="10" placeholder="Titulo do nível"></input>
+                <input type="number" placeholder="% de acerto mínimo"></input>
+                <input type="url" placeholder="URL da imagem do nível"></input>
+                <input type="text" minlength="30" placeholder="Descrição do nível"></input>
             </div>
+        </form>
         </div>
     </div>`
     }
     document.querySelector(".tela10").innerHTML += `
-    <button onclick="preencherLevels();tela11();">
+    <button type="submit">
     Finalizar Quizz
     </button>`
 }
@@ -169,46 +169,59 @@ function preencherLevels(){
             minValue:Number(names[4*i+1])
             })
     }
-    console.log(quizz)
+    enviarQuizz()
+}
+function enviarQuizz(){
+    const promise=axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes",quizz)
+    promise.then(tela11)
+    promise.then(armazenarQuizz)
+    promise.catch(erroCriacao)
 }
 
 function tela11(){
-    quantosQuizzes++
-    const promise=axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes",quizz)
-    document.querySelector(".tela10").classList.toggle("hidden")
+    nomeTela=".tela11"
     document.querySelector(".tela3_container").innerHTML += `
     <div class="tela11">
         Seu quizz está pronto!
         <img class="degrade" src="${quizz.image}"/>
-        <div class="tituloQuizz">${quizz.title}</div>
+        <span>${quizz.title}</span>
         <button onclick="tela02();">
          Acessar Quizz
         </button>
-        <button onclick="tela01();">
+        <button onclick="voltarHome(tela11)">
          Voltar pra home
         </button>
     </div>`
-    promise.then(armazenarQuizz)
-    promise.catch(alert("aaa"))
+    removeLoading(nomeTela)
 }
 
 function armazenarQuizz(resposta){
-    console.log(resposta)
+    quantosQuizzes++
     let meuQuizzSerializado=JSON.stringify(resposta.data)
     localStorage.setItem(`meuQuizzArmazenado${quantosQuizzes}`,meuQuizzSerializado)
     console.log(meuQuizzSerializado)
 }
 
-function getQuizzLocal(){
-    let meusQuizzes=localStorage.getItem(`meuQuizzArmazenado${quantosQuizzes}`)
-    const meuQuizz=JSON.parse(meusQuizzes)
-    return meuQuizz;
+function getIdsLocal(){
+    let listaIds=[];
+    for(i=0;i<quantosQuizzes;i++){
+    let meusQuizzes=localStorage.getItem(`meuQuizzArmazenado${i+1}`)
+    meusQuizzes=JSON.parse(meusQuizzes)
+    listaIds[i]=meusQuizzes.id
+    }
+    return listaIds
 }
 
-/*function apagarQuizz(resposta){
-    axios.delete("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/ID_DO_QUIZZ", resposta, {
-        headers: { 'Secret-Key':`${resposta.key}`}
+function apagarQuizz(resposta){
+    axios.delete(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${resposta.id}`, {resposta}, {
+        headers: { 'Secret-Key':`${resposta.data.key}`}
       }
     )
 }
-*/
+
+function erroCriacao(error){
+nomeTela="tela10";
+alert(`Não foi possível criaz o quizz, erro ${error.response.status}, tente de novo`)
+voltarHome(nomeTela)
+removeLoading(".tela3")
+}   
