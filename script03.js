@@ -258,13 +258,13 @@ function enviarQuizz(){
     promise.catch(erroCriacao)
 }
 
-function tela11(){
+function tela11(resposta){
     document.querySelector(".tela3_container").innerHTML += `
     <div class="tela11">
         Seu quizz está pronto!
         <img class="degrade" src="${quizz.image}"/>
         <span>${quizz.title}</span>
-        <button onclick="tela02();">
+        <button onclick="acessarQuizz(resposta)">
          Acessar Quizz
         </button>
         <button onclick="voltar()">
@@ -307,9 +307,10 @@ document.querySelector(".tela3_container").classList.add("hidden")
 function isValidURL(string) {
     var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
     return (res !== null)
-  }
-  function voltar(){
+}
+
+function voltar(){
     document.querySelector(".tela1_container").classList.toggle("hidden")
     document.querySelector(".tela11").classList.add("hidden")
     document.querySelector(".tela3_container").classList.add("hidden")
-  }
+}
