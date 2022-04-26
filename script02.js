@@ -221,3 +221,12 @@ function adicionaResultado() {
 function reiniciaQuizz() {
     entrandoQuizz(quizzAtual, locAtual = ".tela2_container")
 }
+
+function acessarQuizz(elemento){
+    adicionaLoading(".tela3_container");
+    const ID=elemento.data.id
+    const promiseEntrandoQuizz = axios.get(LINK_API + `/${ID}`);
+    console.log(LINK_API + `/${ID}`)
+    promiseEntrandoQuizz.then(exibindoQuestions);
+    promiseEntrandoQuizz.catch(falhouExibirQuestions);
+}
