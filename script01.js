@@ -1,6 +1,7 @@
 const LINK_API = "https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes"
 const SEGUNDO_1 = 1000 // 1000 ms == 1 segundo
-const SEDUNGO_5 = SEGUNDO_1*5
+const SEGUNDO_5 = SEGUNDO_1*5
+const SEGUNDO_2 = SEGUNDO_1*2
 
 const ZERO = 0;
 
@@ -37,6 +38,7 @@ function removeLoading(tela) {
 // para Tela 01 - "Voltar no Home"
 function voltarHome(classe) {
     document.querySelector(`.${classe}`).classList.toggle("hidden")
+    document.querySelector(`.${classe}`).innerHTML = ""
     document.querySelector(".tela1_container").classList.toggle("hidden")
     document.querySelector(".tela1_container").scrollIntoView(true)
 }
@@ -69,7 +71,7 @@ function exibindoTodosQuizz(arrayDeObjetos) {
 // Falha
 function falhouExibirQuizz(erro) {
     console.log(`Falhou nisso aqui ${erro.status}`)
-    setTimeout(reiniciaPag, SEDUNGO_5)
+    setTimeout(reiniciaPag, SEGUNDO_5)
 }
 
 
