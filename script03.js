@@ -8,6 +8,7 @@ let numeroQuestions;
 let numeroLevels;
 let quantosQuizzes=0
 let contadorValidacao;
+
 function tela08() {
     document.querySelector(".tela3_container").innerHTML = `
     <div class="tela8">
@@ -87,30 +88,24 @@ for(let i=0;i<elemento.length;i++){
         invalido=true
     }
 }
-console.log(elemento)
-console.log(invalido)
 elemento=document.getElementsByClassName("resp")
 for(let i=0;i<elemento.length;i++){
     if(elemento[i].value===""){
         invalido=true
     }
 }
-console.log(invalido)
 elemento=document.getElementsByClassName("URL")
 for(i=0;i<elemento.length;i++){
     if(isValidURL(elemento[i].value)===false){
         invalido=true
         }
-        console.log(invalido)
 }
 elemento=document.getElementsByClassName("URL2")
 for(i=0;i<elemento.length;i++){
     if(isValidURL(elemento[i].value)===false&&elemento[i].value!==""){
         invalido=true
         }
-        console.log(invalido)
 }
-console.log(invalido)
 confirmacaoQuestions(invalido)
 }
 
@@ -272,7 +267,7 @@ function tela11(){
         <button onclick="tela02();">
          Acessar Quizz
         </button>
-        <button onclick="voltarHome("tela11")">
+        <button onclick="voltar()">
          Voltar pra home
         </button>
     </div>`
@@ -312,4 +307,9 @@ document.querySelector(".tela3_container").classList.add("hidden")
 function isValidURL(string) {
     var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
     return (res !== null)
+  }
+  function voltar(){
+    document.querySelector(".tela1_container").classList.toggle("hidden")
+    document.querySelector(".tela11").classList.add("hidden")
+    document.querySelector(".tela3_container").classList.add("hidden")
   }
