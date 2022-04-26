@@ -184,24 +184,21 @@ function scrollQuestao() {
 
 function adicionaResultado() {
     const percentual = Math.round((TOTAL_ACERTOS / TOTAL_QUESTOES) * 100);
-    ver2 = percentual
     let patamar = [];
 
     for (let i = 0; i < niveis.length; i++) {
         patamar.push(percentual >= niveis[i]["minValue"]);
     }
-    ver = patamar
     // Invertendo para pegar a ultima categoria que passou
     patamar = patamar.reverse()
     let posicaoNivel = (patamar.length - 1) - patamar.indexOf(true)
-    ver1 = posicaoNivel
     let level = niveis[posicaoNivel]
 
 
     tela2.querySelector(".corpoQuizz").innerHTML += `
         <div class="resultadoQuizz">
             <div class="resultadoValor">
-                <h3>${level["title"]}</h3>
+                <h3>${percentual}% de acerto: ${level["title"]}</h3>
             </div>
             <img src=${level["image"]}>
             <h4>${level["text"]}</h4>

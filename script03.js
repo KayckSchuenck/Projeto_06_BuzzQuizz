@@ -6,7 +6,7 @@ let quizz = {
 }
 let numeroQuestions;
 let numeroLevels;
-let quantosQuizzes=0
+// let quantosQuizzes=0;
 let contadorValidacao;
 
 function tela08() {
@@ -281,15 +281,15 @@ function armazenarQuizz(resposta){
     console.log(meuQuizzSerializado)
 }
 
-function getIdsLocal(){
-    let listaIds=[];
-    for(i=0;i<quantosQuizzes;i++){
-    let meusQuizzes=localStorage.getItem(`meuQuizzArmazenado${i+1}`)
-    meusQuizzes=JSON.parse(meusQuizzes)
-    listaIds[i]=meusQuizzes.id
-    }
-    return listaIds
-}
+// function getIdsLocal(){
+//     let listaIds=[];
+//     for(i=0;i<quantosQuizzes;i++){
+//     let meusQuizzes=localStorage.getItem(`meuQuizzArmazenado${i+1}`)
+//     meusQuizzes=JSON.parse(meusQuizzes)
+//     listaIds[i]=meusQuizzes.id
+//     }
+//     return listaIds
+// }
 
 function apagarQuizz(resposta){
     axios.delete(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${resposta.id}`, {resposta}, {

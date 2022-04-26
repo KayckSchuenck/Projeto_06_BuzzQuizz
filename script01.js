@@ -4,11 +4,9 @@ const SEGUNDO_5 = SEGUNDO_1*5
 const SEGUNDO_2 = SEGUNDO_1*2
 
 const ZERO = 0;
+let quantosQuizzes = 0;
 
-let ver="";
-let ver1;
-let ver2;
-let ver3;
+let QuantidadeTotalDeQuizz;
 
 
 // Reiniciar a página
@@ -20,7 +18,6 @@ function reiniciaPag() {
 function comparador() {
     return Math.random() - 0.5;
 }
-
 
 
 // Adicionar tela de loading. Só adicionar "telaX_container" como variável que funcionar
@@ -65,6 +62,7 @@ function obterQuizz() {
 // Sucesso
 function exibindoTodosQuizz(arrayDeObjetos) {
     arrayDeObjetos.data.forEach(exibindoTodosQuizz_PegandoDados)
+    QuantidadeTotalDeQuizz = arrayDeObjetos.data.length
     document.querySelector(".loading_container").classList.add("hidden")
     document.querySelector(".tela1_container").classList.remove("hidden")
 
@@ -78,7 +76,12 @@ function falhouExibirQuizz(erro) {
 
 // Pegando dados de cada quiz para exibir no painel
 function exibindoTodosQuizz_PegandoDados(objetoComValores) {
-    document.querySelector(".todosQuizzes").innerHTML += `
+    listaComIds = getIdsLocal()
+    if (listaComIds.includes(objetoComValores["id"])) {
+        document.querySelector(".criarQuizz").classList.add("hidden");
+        document.querySelector(".seusQuizzes").classList.remove("hidden");
+
+        document.querySelector(".seusQuizzes_Quizzes").innerHTML += `
         <li class="todosQuizzes_quizes" onclick="entrandoQuizz(this)">
             <img src=${objetoComValores["image"]}>
             <div class="degrade">
@@ -86,5 +89,31 @@ function exibindoTodosQuizz_PegandoDados(objetoComValores) {
             </div >
             <p class="id">${objetoComValores['id']}</p>
         </li>`
+
+        if (document.querySelectorAll(".seusQuizzes_Quizzes").length > 3) {
+            document.querySelector(".seusQuizzes_Quizzes").innerHTML += `
+                <ion-icon name="chevron-forward-sharp"></ion-icon>`
+        }
+    } else {
+        document.querySelector(".todosQuizzes").innerHTML += `
+        <li class="todosQuizzes_quizes" onclick="entrandoQuizz(this)">
+            <img src=${objetoComValores["image"]}>
+            <div class="degrade">
+                <h3 class="chamadaQuizz">${objetoComValores["title"]}</h3>
+            </div >
+            <p class="id">${objetoComValores['id']}</p>
+        </li>`
+    }
+    
 }
 
+// Pegando do LocalStorage
+function getIdsLocal() {
+    let listaIds = [];
+    for (i = 0; i < localStorage.length; i++) {
+        let meusQuizzes = localStorage.getItem(`meuQuizzArmazenado${i + 1}`)
+        meusQuizzes = JSON.parse(meusQuizzes)
+        listaIds.push(meusQuizzes.id)
+    }
+    return listaIds
+}
