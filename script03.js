@@ -258,13 +258,13 @@ function enviarQuizz(){
     promise.catch(erroCriacao)
 }
 
-function tela11(){
+function tela11(elemento){
     document.querySelector(".tela3_container").innerHTML += `
     <div class="tela11">
         Seu quizz está pronto!
         <img class="degrade" src="${quizz.image}"/>
         <span>${quizz.title}</span>
-        <button onclick="tela02();">
+        <button onclick="entrandoQuizz(elemento,'.tela3_container')">
          Acessar Quizz
         </button>
         <button onclick="voltar()">
