@@ -29,7 +29,7 @@ function adicionaLoading(tela) {
 }
 // Remove tela de loading.
 function removeLoading(tela) {
-    document.querySelector(`${tela}`).classList.toggle("hidden");
+    document.querySelector(`${tela}`).classList.remove("hidden");
     document.querySelector(".loading_container").classList.add("hidden");
 }
 

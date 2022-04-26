@@ -154,7 +154,9 @@
     word-break: break-all;
     transform: translate(0,30px);
  }
-
+ form{
+    text-align: center;
+}
 
 
 @media (max-width:1100px){
