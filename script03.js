@@ -191,6 +191,7 @@ function validarNiveis(){
     let auxiliar=0;
     let elemento=document.getElementsByName("acertoMinimo")
     for(let i=0;i<elemento.length;i++){
+        elemento[i].value=Number(elemento[i].value)
         console.log(elemento[i].value)
         if(elemento[i].value==0){
         auxiliar++
@@ -201,7 +202,6 @@ function validarNiveis(){
             invalido=true
         }
     }
-
     elemento=document.getElementsByName("titulo")
     for(let i=0;i<elemento.length;i++){
         if(elemento[i].value.length<10){
