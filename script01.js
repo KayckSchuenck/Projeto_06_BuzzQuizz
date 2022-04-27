@@ -37,9 +37,9 @@ function removeLoading(tela) {
 
 
 // para Tela 01 - "Voltar no Home"
-function voltarHome(classe) {
-    document.querySelector(`.${classe}`).classList.toggle("hidden")
-    document.querySelector(`.${classe}`).innerHTML = ""
+function voltarHome(telaAtual) {
+    document.querySelector(`.${telaAtual}`).classList.toggle("hidden")
+    document.querySelector(`.${telaAtual}`).innerHTML = ""
     document.querySelector(".tela1_container").classList.toggle("hidden")
     document.querySelector(".tela1_container").scrollIntoView(true)
 }
@@ -129,25 +129,26 @@ function getIdsLocal() {
 }
 
 let posicao = 2;
+let direita = true;
 // Rolar os seus quizzes para direita
 function rolaPraDireita() {
-    if (posicao === 0) {
-        posicao = 2
+    if (!direita) {
+        posicao += 2
     }
     if (posicao < localStorage.length-1) {
         posicao++
-        console.log(posicao)
         document.querySelector(".seusQuizzes_Quizzes").children[posicao].scrollIntoView({block: "end", behavior: "smooth"})
     }
+    direita = true
 }
 // Rolar os seus quizzes para esquerda
 function rolaPraEsquerda() {
     if (posicao > 0 && posicao <= localStorage.length-1) {
-        if (posicao === localStorage.length-1) {
-            posicao = localStorage.length-1 - 2
+        if (direita) {
+            posicao -= 2
         }
         posicao--
-        console.log(posicao)
         document.querySelector(".seusQuizzes_Quizzes").children[posicao].scrollIntoView({block: "end", behavior: "smooth"})
     }
+    direita = false
 }

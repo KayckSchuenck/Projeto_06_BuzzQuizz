@@ -57,3 +57,29 @@ header>h1 {
 .hidden {
     display: none;
 }
+
+.deVoltaPraCasa {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    height: 70px;
+    width: 70px;
+    background-color: #EC362d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px 0 rgb(0 0 0 / 30%);
+}
+.deVoltaPraCasa:hover{
+    filter: brightness(1.50);
+}
+.deVoltaPraCasa>ion-icon:hover{
+    filter: brightness(1);
+}
+
+.deVoltaPraCasa>ion-icon{
+    width: 50px;
+    height: 50px;
+    box-shadow: none;
+}
