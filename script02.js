@@ -204,7 +204,7 @@ function adicionaResultado() {
     tela2.querySelector(".corpoQuizz").innerHTML += `
         <div class="resultadoQuizz">
             <div class="resultadoValor">
-                <h3>${level["title"]}</h3>
+                <h3>${percentual}% de acerto: ${level["title"]}</h3>
             </div>
             <img src=${level["image"]}>
             <h4>${level["text"]}</h4>

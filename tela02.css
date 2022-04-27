@@ -251,6 +251,7 @@
         height: 100%;
         padding: 18px 18px 26px;
         margin-bottom: 34px;
+        justify-content: center;
     }
 
     .resultadoQuizz>img {
