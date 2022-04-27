@@ -264,10 +264,10 @@ function tela11(resposta){
         Seu quizz está pronto!
         <img class="degrade" src="${quizz.image}"/>
         <span>${quizz.title}</span>
-        <button onclick="acessarQuizz(resposta)">
+        <button onclick="entrandoQuizz('', locAtual = '.tela3_container', ID = ${resposta.data['id']})">
          Acessar Quizz
         </button>
-        <button onclick="voltar()">
+        <button onclick="reiniciaPag()">
          Voltar pra home
         </button>
     </div>`

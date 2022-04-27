@@ -8,15 +8,22 @@ let questaoCompleta;
 let niveis;
 
 let quizzAtual;
-
+let ID_DO_QUIZZ;
 
 // Entrando no quizz e exibindo perguntas
-function entrandoQuizz(elemento, locAtual = ".tela1_container") {
+function entrandoQuizz(elemento, locAtual = ".tela1_container", ID = -1) {
     quizzAtual = elemento
     TOTAL_RESP_DADAS = 0;
     TOTAL_ACERTOS = 0;
     adicionaLoading(locAtual);
-    const ID_DO_QUIZZ = elemento.querySelector(".id").innerHTML;
+
+
+    if (ID === -1) {
+        ID_DO_QUIZZ = elemento.querySelector(".id").innerHTML;
+    } else {
+        ID_DO_QUIZZ = ID
+    }
+
     const promiseEntrandoQuizz = axios.get(LINK_API + `/${ID_DO_QUIZZ}`);
     console.log(LINK_API + `/${ID_DO_QUIZZ}`)
     promiseEntrandoQuizz.then(exibindoQuestions);
@@ -30,7 +37,7 @@ function exibindoQuestions(arrayDeObjetos) {
 // Falha
 function falhouExibirQuestions(erro) {
     console.log(`Falhou nisso aqui ${erro.status}`)
-    setTimeout(reiniciaPag, SEDUNGO_5)
+    setTimeout(reiniciaPag, SEGUNDO_5)
 }
 
 // Adicionando cada questão
@@ -173,7 +180,7 @@ function scrollQuestao() {
         if (TOTAL_RESP_DADAS === TOTAL_QUESTOES) {
             adicionaResultado()
         }
-        todasQuestao[posQuestaoAtual + 1].scrollIntoView(true);
+        todasQuestao[posQuestaoAtual + 1].scrollIntoView({block: "start", behavior: "smooth"});
     } else if (posQuestaoAtual === TOTAL_QUESTOES - 1) {
         if (TOTAL_RESP_DADAS === TOTAL_QUESTOES) {
             adicionaResultado()
@@ -181,20 +188,16 @@ function scrollQuestao() {
     }
 }
 
-
 function adicionaResultado() {
     const percentual = Math.round((TOTAL_ACERTOS / TOTAL_QUESTOES) * 100);
-    ver2 = percentual
     let patamar = [];
 
     for (let i = 0; i < niveis.length; i++) {
         patamar.push(percentual >= niveis[i]["minValue"]);
     }
-    ver = patamar
     // Invertendo para pegar a ultima categoria que passou
     patamar = patamar.reverse()
     let posicaoNivel = (patamar.length - 1) - patamar.indexOf(true)
-    ver1 = posicaoNivel
     let level = niveis[posicaoNivel]
 
 
@@ -215,16 +218,16 @@ function adicionaResultado() {
             <p onclick="voltarHome('tela2_container')">Voltar pra home</p>
         </div>`
 
-    document.querySelector(".resultadoQuizz").scrollIntoView(true)
+    document.querySelector(".resultadoQuizz").scrollIntoView({block: "start", behavior: "smooth"})
 }
 
 function reiniciaQuizz() {
     entrandoQuizz(quizzAtual, locAtual = ".tela2_container")
 }
 
-function acessarQuizz(elemento){
+function acessarQuizz(elemento) {
     adicionaLoading(".tela3_container");
-    const ID=elemento.data.id
+    const ID = elemento.data.id
     const promiseEntrandoQuizz = axios.get(LINK_API + `/${ID}`);
     console.log(LINK_API + `/${ID}`)
     promiseEntrandoQuizz.then(exibindoQuestions);

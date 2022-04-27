@@ -115,7 +115,7 @@
 
 .resultadoQuizz {
     width: 100%;
-    height: 430px;
+    height: 100%;
     padding: 18px 18px 22px;
     background-color: white;
     margin-bottom: 58px;
@@ -141,11 +141,13 @@
 
 .resultadoValor {
     width: 100%;
-    height: 100px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #EC362D;
+    padding: 30px 32px 24px;
+    margin-bottom: 20px;
 }
 
 .resultadoValor>h3 {
@@ -153,6 +155,8 @@
     font-size: 23px;
     line-height: 27px;
     color: #FFFFFF;
+    word-break: break-word;
+    text-align: center;
 }
 
 .finalQuizzBotoes {
@@ -259,6 +263,7 @@
         width: 340px;
         font-size: 16.8px;
         line-height: 20px;
+        align-items: center;
     }
 
     .resultadoValor>h3 {

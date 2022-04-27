@@ -1,12 +1,16 @@
 const LINK_API = "https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes"
 const SEGUNDO_1 = 1000 // 1000 ms == 1 segundo
-const SEGUNDO_5 = SEGUNDO_1*5
-const SEGUNDO_2 = SEGUNDO_1*2
+const SEGUNDO_5 = SEGUNDO_1 * 5
+const SEGUNDO_2 = SEGUNDO_1 * 2
 
 const ZERO = 0;
-let quantosQuizzes = 0;
+let quantosQuizzes = localStorage.length;
 
 let QuantidadeTotalDeQuizz;
+
+let ver;
+let ver1;
+let ver2;
 
 
 // Reiniciar a página
@@ -73,6 +77,7 @@ function falhouExibirQuizz(erro) {
     setTimeout(reiniciaPag, SEGUNDO_5)
 }
 
+let meusQuizzesAdicionado = 0;
 
 // Pegando dados de cada quiz para exibir no painel
 function exibindoTodosQuizz_PegandoDados(objetoComValores) {
@@ -90,10 +95,7 @@ function exibindoTodosQuizz_PegandoDados(objetoComValores) {
             <p class="id">${objetoComValores['id']}</p>
         </li>`
 
-        if (document.querySelectorAll(".seusQuizzes_Quizzes").length > 3) {
-            document.querySelector(".seusQuizzes_Quizzes").innerHTML += `
-                <ion-icon name="chevron-forward-sharp"></ion-icon>`
-        }
+        meusQuizzesAdicionado++
     } else {
         document.querySelector(".todosQuizzes").innerHTML += `
         <li class="todosQuizzes_quizes" onclick="entrandoQuizz(this)">
@@ -104,7 +106,15 @@ function exibindoTodosQuizz_PegandoDados(objetoComValores) {
             <p class="id">${objetoComValores['id']}</p>
         </li>`
     }
-    
+    if (meusQuizzesAdicionado === localStorage.length) {
+        if (document.querySelector(".seusQuizzes_Quizzes").children.length > 3) {
+            document.querySelector(".seusQuizzes").innerHTML += `
+                <ion-icon name="chevron-forward-sharp" onclick="rolaPraDireita()"></ion-icon>
+                <ion-icon class="volta" name="chevron-back-sharp" onclick="rolaPraEsquerda()"></ion-icon>`
+        }
+        meusQuizzesAdicionado++
+    }
+
 }
 
 // Pegando do LocalStorage
@@ -116,4 +126,28 @@ function getIdsLocal() {
         listaIds.push(meusQuizzes.id)
     }
     return listaIds
+}
+
+let posicao = 2;
+// Rolar os seus quizzes para direita
+function rolaPraDireita() {
+    if (posicao === 0) {
+        posicao = 2
+    }
+    if (posicao < localStorage.length-1) {
+        posicao++
+        console.log(posicao)
+        document.querySelector(".seusQuizzes_Quizzes").children[posicao].scrollIntoView({block: "end", behavior: "smooth"})
+    }
+}
+// Rolar os seus quizzes para esquerda
+function rolaPraEsquerda() {
+    if (posicao > 0 && posicao <= localStorage.length-1) {
+        if (posicao === localStorage.length-1) {
+            posicao = localStorage.length-1 - 2
+        }
+        posicao--
+        console.log(posicao)
+        document.querySelector(".seusQuizzes_Quizzes").children[posicao].scrollIntoView({block: "end", behavior: "smooth"})
+    }
 }
